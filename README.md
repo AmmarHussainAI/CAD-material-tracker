@@ -21,20 +21,20 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Create a `.env` in the repo root (see [Environment variables](#environment-variables)).
+### Local Database Setup (Automated)
+Run the setup script to start local PostgreSQL in Docker, apply migrations, and seed the default user:
+```bash
+chmod +x setup_local_db.sh
+./setup_local_db.sh
+```
 
+### Run Backend
 ```bash
 # Run backend (port 8000)
 python run.py
 
 # With auto-reload
 python run.py --reload
-```
-
-Optional: run migrations if you use Alembic:
-
-```bash
-alembic upgrade head
 ```
 
 ### Frontend

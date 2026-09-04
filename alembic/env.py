@@ -20,9 +20,9 @@ if config.config_file_name is not None:
 
 
 def get_url() -> str:
-    direct_url = os.getenv("DIRECT_URL")
+    direct_url = os.getenv("DIRECT_URL") or os.getenv("DATABASE_URL")
     if not direct_url:
-        raise RuntimeError("DIRECT_URL is not set for Alembic migrations.")
+        raise RuntimeError("Neither DIRECT_URL nor DATABASE_URL is set for Alembic migrations.")
     return direct_url
 
 
